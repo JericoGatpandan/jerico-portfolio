@@ -29,26 +29,26 @@ export const PROJECTS: Project[] = [
   {
     title: "ASAC",
     subtitle: "Automated System for Agriculture Cooperatives",
-    category: "Database",
+    category: "Full-Stack",
     year: "Ongoing",
     role: "Database + Frontend · Capstone with FACCS",
     blurb:
       "Relational schema, stored procedures, and triggers for Order/Transaction Management and FarmLedger Accounting. Role-based access for FACCS Admin, Cooperative Officer, and Farmer.",
-    stack: ["MySQL", "React", "Tailwind", "shadcn/ui", "Figma"],
+    stack: ["PostgreSQL", "Supabase", "React", "Tailwind", "shadcn/ui", "Figma"],
     featured: true,
     link: "https://salmon-ibis-469171.hostingersite.com/",
     image: "/projects/asac.png",
   },
   {
-    title: "CHT Travel & Tours",
+    title: "Travel & Tours Management System",
     subtitle: "JavaFX Desktop Application",
-    category: "Desktop",
+    category: "Full-Stack",
     year: "2024",
     role: "Desktop Developer",
     blurb:
       "A JavaFX desktop application for managing travel agency operations, including client records, tour packages, bookings, trips, payments, and employee administration. Uses MySQL for persistence with role-based workflows.",
     stack: ["Java 21", "JavaFX 21", "Maven", "MySQL"],
-    image: "https://placehold.co/600x400/1a1a2e/ffffff?text=CHT+Travel+%26+Tours",
+    image: "https://placehold.co/600x400/1a1a2e/ffffff?text=Travel+%26+Tours+Management+System",
   },
   {
     title: "MainStruc",
