@@ -37,7 +37,7 @@ export function Footer() {
                 based in
               </p>
               <p className="mt-1 text-white/85 text-sm">
-                P. Diaz Extension, Sta. Cruz, Naga City · PH
+                Naga City, Philippines
               </p>
             </div>
             <div>
