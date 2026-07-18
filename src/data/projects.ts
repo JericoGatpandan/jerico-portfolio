@@ -21,8 +21,8 @@ export const PROJECTS: Project[] = [
     year: "2025",
     role: "Backend + Frontend Dev · Team UNC Colab",
     blurb:
-      "Two-stage AI flood forecasting system combining ML classifiers with a physics-informed neural network surrogate model, validated using Nash–Sutcliffe Efficiency. 2nd Runner-Up at Naga IDEA2STARTUP 2025.",
-    stack: ["React", "Node.js", "Python", "PINN", "Tailwind"],
+      "Two-stage AI flood forecasting system combining ML classifiers with deep learning predictive models, validated using Nash–Sutcliffe Efficiency. 2nd Runner-Up at Naga IDEA2STARTUP 2025.",
+    stack: ["React", "Node.js", "Python", "Tailwind"],
     link: "https://stream-ai-forecasting-system-otk4pgd72.vercel.app/",
     image: "/projects/stream.png",
   },

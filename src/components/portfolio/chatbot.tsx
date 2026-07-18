@@ -20,13 +20,14 @@ Here is the information about Jerico Gatpandan:
   - TVL - Computer Systems Servicing at Sacred Heart High School, Sipocot (2022-2024).
   - Certification: National Certificate II — Computer Systems Servicing.
 - Professional Experience:
+  - Co-founder at DabaForge: Building a startup with a dedicated team, serving as a digital agency for niche web solutions and a dedicated SaaS platform tailored for engineering and construction firms.
   - Web Developer Intern at ServiceBai Philippines (Remote, June 2026 - Sept 2026 Expected): Developing backend features for an on-demand service marketplace using Cloudflare Workers and D1.
   - Trainee / Intern at LGU Calagbangan, Sipocot (Jan 2024): Admin, filing, tech support.
   - Student Assistant at Sacred Heart High School (Jan 2023 - Jan 2024): Tech support, OS/network troubleshooting.
 - Expertise / Skills:
   - Full-Stack Development: React, Node.js, Express, MySQL, Docker, Hostinger.
   - Frontend & UI: React, Tailwind CSS, shadcn/ui, Figma.
-  - Data & Backend: Python, PINN (Physics-Informed Neural Networks), MySQL, Postgres, Cloudflare Workers, D1.
+  - Data & Backend: Python, deep learning predictive models, MySQL, Postgres, Cloudflare Workers, D1.
 - Projects:
   - Jerico has built over 10 applications spanning cooperative management, travel booking, and AI-assisted forecasting.
 - Awards:
