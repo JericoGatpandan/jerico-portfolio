@@ -7,6 +7,7 @@ import { Stack } from "@/components/portfolio/Stack";
 import { Work } from "@/components/portfolio/Work";
 import { Experience } from "@/components/portfolio/Experience";
 import { Education } from "@/components/portfolio/Education";
+import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
 import { useReveal } from "@/hooks/useReveal";
 
@@ -45,6 +46,7 @@ function Index() {
         <Work />
         <Experience />
         <Education />
+        <Contact />
       </main>
       <Footer />
     </>
