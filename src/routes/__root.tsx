@@ -5,6 +5,7 @@ import {
   createRootRouteWithContext,
   useRouter,
 } from "@tanstack/react-router";
+import { Analytics } from "@vercel/analytics/react";
 
 import "../styles.css";
 
@@ -80,6 +81,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <Outlet />
       <Chatbot />
+      <Analytics />
     </QueryClientProvider>
   );
 }
