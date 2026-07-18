@@ -3,7 +3,9 @@
 type Tool = { name: string; slug?: string; color?: string };
 
 const TOOLS: Tool[] = [
+  { name: "TypeScript", slug: "typescript", color: "3178C6" },
   { name: "React", slug: "react", color: "61DAFB" },
+  { name: "NestJS", slug: "nestjs", color: "E0234E" },
   { name: "Node.js", slug: "nodedotjs", color: "5FA04E" },
   { name: "Express", slug: "express", color: "FFFFFF" },
   { name: "JavaScript", slug: "javascript", color: "F7DF1E" },
@@ -15,6 +17,8 @@ const TOOLS: Tool[] = [
   { name: "CSS3", slug: "css", color: "1572B6" },
   { name: "Tailwind", slug: "tailwindcss", color: "06B6D4" },
   { name: "shadcn/ui", slug: "shadcnui", color: "FFFFFF" },
+  { name: "Jest", slug: "jest", color: "C21325" },
+  { name: "Vitest", slug: "vitest", color: "6E9F18" },
   { name: "Git", slug: "git", color: "F05032" },
   { name: "GitHub", slug: "github", color: "FFFFFF" },
   { name: "Figma", slug: "figma", color: "F24E1E" },

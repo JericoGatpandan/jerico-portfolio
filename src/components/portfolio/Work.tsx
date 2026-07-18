@@ -1,8 +1,11 @@
-import { useMemo } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "@tanstack/react-router";
-import { PROJECTS } from "@/data/projects";
+import { PROJECTS, Project } from "@/data/projects";
+import { ProjectDrawer } from "@/components/portfolio/ProjectDrawer";
 
 export function Work() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
   // Featured project is always the one marked as featured
   const featured = PROJECTS.find((p) => p.featured)!;
   
@@ -18,7 +21,7 @@ export function Work() {
   return (
     <section id="work" className="section">
       <div className="max-w-6xl mx-auto">
-        <div className="reveal mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div className="reveal mb-12 flex flex-col gap-6">
           <div>
             <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-white/50">
               02 — selected projects
@@ -27,9 +30,13 @@ export function Work() {
               My <span className="grad-text">Work</span>
             </h2>
           </div>
-          <p className="max-w-md text-sm text-white/65 leading-relaxed">
+          <p className="max-w-2xl text-sm md:text-base text-white/65 leading-relaxed">
             A curated list of applications across cooperative management, travel booking, AI-assisted
             forecasting, and more — built alongside coursework, hackathons, and community teams.
+            <br /><br />
+            <span className="text-white/40 italic text-xs md:text-sm">
+              * Note: Many of my other projects are private internal tools or are not currently deployed. <a href="#contact" className="hover:text-cyan-400 transition-colors underline decoration-white/20 underline-offset-2">Contact me</a> to learn more!
+            </span>
           </p>
         </div>
 
@@ -45,13 +52,9 @@ export function Work() {
               Featured Project · {featured.year}
             </span>
             <h3 className="mt-3 display-font text-3xl md:text-5xl font-semibold text-white leading-tight tracking-tight">
-              {featured.link ? (
-                <a href={featured.link} target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors">
-                  {featured.title} ↗
-                </a>
-              ) : (
-                featured.title
-              )}
+              <button onClick={() => setSelectedProject(featured)} className="hover:text-cyan-400 transition-colors text-left">
+                {featured.title}
+              </button>
             </h3>
             <p className="mt-2 text-white/60 text-sm md:text-base">
               {featured.subtitle}
@@ -71,32 +74,14 @@ export function Work() {
             </div>
           </div>
           <div className="md:col-span-2 relative flex items-center justify-center">
-            {featured.link ? (
-              <a href={featured.link} target="_blank" rel="noreferrer" className="block w-full h-full">
-                <div className="glass rounded-2xl w-full h-full min-h-[250px] flex items-center justify-center relative overflow-hidden group-hover:border-cyan-500/30 transition-colors">
-                  {featured.image ? (
-                    <img src={featured.image} alt={featured.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
-                  ) : (
-                    <div
-                      aria-hidden
-                      className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity"
-                      style={{
-                        background:
-                          "radial-gradient(circle at 30% 30%, #6366f1, transparent 60%), radial-gradient(circle at 70% 70%, #06b6d4, transparent 55%)",
-                        filter: "blur(20px)",
-                      }}
-                    />
-                  )}
-                </div>
-              </a>
-            ) : (
-              <div className="glass rounded-2xl w-full h-full min-h-[250px] flex items-center justify-center relative overflow-hidden">
+            <button onClick={() => setSelectedProject(featured)} className="block w-full h-full text-left">
+              <div className="glass rounded-2xl w-full h-full min-h-[250px] flex items-center justify-center relative overflow-hidden group-hover:border-cyan-500/30 transition-colors">
                 {featured.image ? (
                   <img src={featured.image} alt={featured.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
                 ) : (
                   <div
                     aria-hidden
-                    className="absolute inset-0 opacity-40"
+                    className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity"
                     style={{
                       background:
                         "radial-gradient(circle at 30% 30%, #6366f1, transparent 60%), radial-gradient(circle at 70% 70%, #06b6d4, transparent 55%)",
@@ -105,21 +90,18 @@ export function Work() {
                   />
                 )}
               </div>
-            )}
+            </button>
           </div>
         </div>
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {list.map((p) => {
-            const CardWrapper = p.link ? "a" : "div";
-            const wrapperProps = p.link ? { href: p.link, target: "_blank", rel: "noreferrer" } : {};
-
             return (
-              <CardWrapper
+              <button
                 key={p.title}
-                {...wrapperProps}
-                className="reveal glass glass-hover rounded-2xl p-0 flex flex-col overflow-hidden group cursor-pointer"
+                onClick={() => setSelectedProject(p)}
+                className="reveal glass glass-hover rounded-2xl p-0 flex flex-col overflow-hidden group cursor-pointer text-left w-full h-full"
               >
                 {/* Image Placeholder Area */}
                 {p.image && (
@@ -160,7 +142,7 @@ export function Work() {
                     )}
                   </div>
                 </div>
-              </CardWrapper>
+              </button>
             );
           })}
         </div>
@@ -178,6 +160,7 @@ export function Work() {
           </div>
         )}
       </div>
+      <ProjectDrawer project={selectedProject} onClose={() => setSelectedProject(null)} />
     </section>
   );
 }

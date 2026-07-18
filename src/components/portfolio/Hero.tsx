@@ -18,7 +18,7 @@ export function Hero() {
     <section id="top" className="relative section pt-40 md:pt-48 pb-20">
       <div className="max-w-6xl mx-auto text-center">
         <p className="reveal in font-mono text-[11px] md:text-xs uppercase tracking-[0.35em] text-white/50 mb-8">
-          portfolio — v2026
+          portfolio - 2026
         </p>
 
         <h1

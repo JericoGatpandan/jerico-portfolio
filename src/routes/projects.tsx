@@ -1,8 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
 import { Background } from "@/components/portfolio/Background";
+import { DabaForge } from "@/components/portfolio/DabaForge";
 import { Footer } from "@/components/portfolio/Footer";
-import { PROJECTS, FILTERS, ProjectCategory } from "@/data/projects";
+import { ProjectDrawer } from "@/components/portfolio/ProjectDrawer";
+import { PROJECTS, FILTERS, ProjectCategory, Project } from "@/data/projects";
+import { useReveal } from "@/hooks/useReveal";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -14,7 +17,9 @@ export const Route = createFileRoute("/projects")({
 });
 
 function ProjectsPage() {
+  useReveal();
   const [filter, setFilter] = useState<ProjectCategory | "All">("All");
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const list = useMemo(
     () =>
@@ -49,6 +54,10 @@ function ProjectsPage() {
             </h1>
             <p className="mt-4 max-w-2xl text-base text-white/65 leading-relaxed">
               A comprehensive archive of applications, websites, and tools I have built over time, ranging from coursework and hackathon prototypes to production applications.
+              <br /><br />
+              <span className="text-white/40 italic text-sm">
+                * Note: I have built many more applications that are either private internal tools, client projects, or are not currently deployed. <a href="#contact" className="hover:text-cyan-400 transition-colors underline decoration-white/20 underline-offset-2">Contact me</a> to learn more!
+              </span>
             </p>
           </div>
 
@@ -86,14 +95,11 @@ function ProjectsPage() {
           {/* Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {list.map((p) => {
-              const CardWrapper = p.link ? "a" : "div";
-              const wrapperProps = p.link ? { href: p.link, target: "_blank", rel: "noreferrer" } : {};
-
               return (
-                <CardWrapper
+                <button
                   key={p.title}
-                  {...wrapperProps}
-                  className="glass glass-hover rounded-2xl p-0 flex flex-col overflow-hidden group cursor-pointer animate-in fade-in zoom-in-95 duration-500"
+                  onClick={() => setSelectedProject(p)}
+                  className="glass glass-hover rounded-2xl p-0 flex flex-col overflow-hidden group cursor-pointer animate-in fade-in zoom-in-95 duration-500 text-left w-full h-full"
                 >
                   {/* Image Placeholder Area */}
                   {p.image && (
@@ -134,7 +140,7 @@ function ProjectsPage() {
                       )}
                     </div>
                   </div>
-                </CardWrapper>
+                </button>
               );
             })}
           </div>
@@ -147,7 +153,9 @@ function ProjectsPage() {
         </div>
       </main>
       
+      <DabaForge />
       <Footer />
+      <ProjectDrawer project={selectedProject} onClose={() => setSelectedProject(null)} />
     </>
   );
 }

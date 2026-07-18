@@ -53,6 +53,16 @@ export function Footer() {
               <ul className="mt-2 space-y-1.5 text-sm">
                 <li>
                   <a
+                    href="https://www.linkedin.com/in/jericogatpandan/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-white/85 hover:text-white transition-colors"
+                  >
+                    linkedin.com/in/jericogatpandan ↗
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="https://github.com/JericoGatpandan"
                     target="_blank"
                     rel="noreferrer"
