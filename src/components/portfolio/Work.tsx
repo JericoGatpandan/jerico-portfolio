@@ -1,11 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "@tanstack/react-router";
 import { PROJECTS, Project } from "@/data/projects";
-import { ProjectDrawer } from "@/components/portfolio/ProjectDrawer";
-
 export function Work() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
   // Featured project is always the one marked as featured
   const featured = PROJECTS.find((p) => p.featured)!;
   
@@ -52,9 +48,9 @@ export function Work() {
               Featured Project · {featured.year}
             </span>
             <h3 className="mt-3 display-font text-3xl md:text-5xl font-semibold text-white leading-tight tracking-tight">
-              <button onClick={() => setSelectedProject(featured)} className="hover:text-cyan-400 transition-colors text-left">
+              <Link to="/projects/$id" params={{ id: featured.id }} className="hover:text-cyan-400 transition-colors text-left block">
                 {featured.title}
-              </button>
+              </Link>
             </h3>
             <p className="mt-2 text-white/60 text-sm md:text-base">
               {featured.subtitle}
@@ -74,7 +70,7 @@ export function Work() {
             </div>
           </div>
           <div className="md:col-span-2 relative flex items-center justify-center">
-            <button onClick={() => setSelectedProject(featured)} className="block w-full h-full text-left">
+            <Link to="/projects/$id" params={{ id: featured.id }} className="block w-full h-full text-left">
               <div className="glass rounded-2xl w-full h-full min-h-[250px] flex items-center justify-center relative overflow-hidden group-hover:border-cyan-500/30 transition-colors">
                 {featured.image ? (
                   <img src={featured.image} alt={featured.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
@@ -90,7 +86,7 @@ export function Work() {
                   />
                 )}
               </div>
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -98,10 +94,11 @@ export function Work() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {list.map((p) => {
             return (
-              <button
+              <Link
                 key={p.title}
-                onClick={() => setSelectedProject(p)}
-                className="reveal glass glass-hover rounded-2xl p-0 flex flex-col overflow-hidden group cursor-pointer text-left w-full h-full"
+                to="/projects/$id"
+                params={{ id: p.id }}
+                className="reveal glass glass-hover rounded-2xl p-0 flex flex-col overflow-hidden group cursor-pointer text-left w-full h-full block"
               >
                 {/* Image Placeholder Area */}
                 {p.image && (
@@ -142,7 +139,7 @@ export function Work() {
                     )}
                   </div>
                 </div>
-              </button>
+              </Link>
             );
           })}
         </div>
@@ -160,7 +157,6 @@ export function Work() {
           </div>
         )}
       </div>
-      <ProjectDrawer project={selectedProject} onClose={() => setSelectedProject(null)} />
     </section>
   );
 }

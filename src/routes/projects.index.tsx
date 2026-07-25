@@ -3,11 +3,10 @@ import { useState, useMemo } from "react";
 import { Background } from "@/components/portfolio/Background";
 import { DabaForge } from "@/components/portfolio/DabaForge";
 import { Footer } from "@/components/portfolio/Footer";
-import { ProjectDrawer } from "@/components/portfolio/ProjectDrawer";
 import { PROJECTS, FILTERS, ProjectCategory, Project } from "@/data/projects";
 import { useReveal } from "@/hooks/useReveal";
 
-export const Route = createFileRoute("/projects")({
+export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
       { title: "All Projects — Jerico Gatpandan" },
@@ -19,7 +18,6 @@ export const Route = createFileRoute("/projects")({
 function ProjectsPage() {
   useReveal();
   const [filter, setFilter] = useState<ProjectCategory | "All">("All");
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const list = useMemo(
     () =>
@@ -96,10 +94,11 @@ function ProjectsPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {list.map((p) => {
               return (
-                <button
+                <Link
                   key={p.title}
-                  onClick={() => setSelectedProject(p)}
-                  className="glass glass-hover rounded-2xl p-0 flex flex-col overflow-hidden group cursor-pointer animate-in fade-in zoom-in-95 duration-500 text-left w-full h-full"
+                  to="/projects/$id"
+                  params={{ id: p.id }}
+                  className="glass glass-hover rounded-2xl p-0 flex flex-col overflow-hidden group cursor-pointer animate-in fade-in zoom-in-95 duration-500 text-left w-full h-full block"
                 >
                   {/* Image Placeholder Area */}
                   {p.image && (
@@ -140,7 +139,7 @@ function ProjectsPage() {
                       )}
                     </div>
                   </div>
-                </button>
+                </Link>
               );
             })}
           </div>
@@ -155,7 +154,6 @@ function ProjectsPage() {
       
       <DabaForge />
       <Footer />
-      <ProjectDrawer project={selectedProject} onClose={() => setSelectedProject(null)} />
     </>
   );
 }
