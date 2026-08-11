@@ -1,6 +1,6 @@
 // Tool list with official simple-icons CDN slugs (where available)
 // Falls back to a tinted initial badge when no icon exists.
-type Tool = { name: string; slug?: string; color?: string };
+type Tool = { name: string; slug?: string; color?: string; image?: string };
 
 const TOOLS: Tool[] = [
   { name: "TypeScript", slug: "typescript", color: "3178C6" },
@@ -24,6 +24,7 @@ const TOOLS: Tool[] = [
   { name: "Figma", slug: "figma", color: "F24E1E" },
   { name: "Assembly", slug: "assemblyscript", color: "007AC6" },
   { name: "Docker", slug: "docker", color: "2496ED" },
+  { name: "AWS", image: "/aws.svg" },
   { name: "Cloudflare", slug: "cloudflare", color: "F38020" },
   { name: "Hostinger", slug: "hostinger", color: "673DE6" },
 ];
@@ -32,7 +33,14 @@ function ToolIcon({ tool }: { tool: Tool }) {
   return (
     <div className="flex flex-col items-center justify-center gap-3 w-28 shrink-0">
       <div className="glass rounded-2xl w-20 h-20 flex items-center justify-center glass-hover">
-        {tool.slug ? (
+        {tool.image ? (
+          <img
+            src={tool.image}
+            alt={`${tool.name} logo`}
+            className="tool-icon w-10 h-10"
+            loading="lazy"
+          />
+        ) : tool.slug ? (
           <img
             src={`https://cdn.simpleicons.org/${tool.slug}/${tool.color ?? "FFFFFF"}`}
             alt={`${tool.name} logo`}
