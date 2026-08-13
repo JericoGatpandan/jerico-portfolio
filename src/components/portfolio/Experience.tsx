@@ -39,11 +39,11 @@ export function Experience() {
     <section id="experience" className="section">
       <div className="max-w-4xl mx-auto">
         <div className="reveal mb-12 text-center">
-          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-white/50">
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-black/50">
             03 — timeline
           </p>
-          <h2 className="mt-4 display-font text-4xl md:text-6xl font-semibold tracking-tight text-white">
-            Professional <span className="grad-text">Experience</span>
+          <h2 className="mt-4 display-font text-4xl md:text-6xl font-semibold tracking-tight text-black">
+            Professional <span className="underline decoration-4 decoration-[#FFD60A]">Experience</span>
           </h2>
         </div>
 
@@ -53,22 +53,22 @@ export function Experience() {
             return (
               <div
                 key={r.title}
-                className="glass rounded-2xl overflow-hidden"
+                className="neo-card rounded-lg overflow-hidden"
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 px-5 md:px-7 py-5 text-left glass-hover"
+                  className="w-full flex items-center justify-between gap-4 px-5 md:px-7 py-5 text-left neo-card-hover"
                 >
                   <div className="min-w-0">
-                    <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/45">
+                    <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-black/45">
                       {r.period}
                     </div>
-                    <div className="mt-1.5 display-font text-lg md:text-xl text-white font-semibold truncate">
-                      {r.title} <span className="text-white/40">@ {r.org}</span>
+                    <div className="mt-1.5 display-font text-lg md:text-xl text-black font-semibold truncate">
+                      {r.title} <span className="text-black/40">@ {r.org}</span>
                     </div>
                   </div>
                   <span
-                    className={`shrink-0 w-8 h-8 rounded-full glass-strong flex items-center justify-center text-white/80 transition-transform ${
+                    className={`shrink-0 w-8 h-8 rounded-full neo-card bg-black text-white flex items-center justify-center transition-transform ${
                       isOpen ? "rotate-45" : ""
                     }`}
                     aria-hidden
@@ -82,10 +82,10 @@ export function Experience() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <ul className="px-5 md:px-7 pb-6 space-y-2 text-sm text-white/70 leading-relaxed">
+                    <ul className="px-5 md:px-7 pb-6 space-y-2 text-sm text-black/70 leading-relaxed">
                       {r.details.map((d) => (
                         <li key={d} className="flex gap-3">
-                          <span className="grad-text font-mono">→</span>
+                          <span className="font-mono font-bold">→</span>
                           <span>{d}</span>
                         </li>
                       ))}

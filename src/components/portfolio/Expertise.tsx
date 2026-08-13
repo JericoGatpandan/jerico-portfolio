@@ -24,11 +24,11 @@ export function Expertise() {
     <section id="expertise" className="section">
       <div className="max-w-6xl mx-auto">
         <div className="reveal mb-14 text-center">
-          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-white/50">
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-black/50">
             01 — what i do
           </p>
-          <h2 className="mt-4 display-font text-4xl md:text-6xl font-semibold tracking-tight text-white">
-            My <span className="grad-text">Expertise</span>
+          <h2 className="mt-4 display-font text-4xl md:text-6xl font-semibold tracking-tight text-black">
+            My <span className="underline decoration-4 decoration-[#FFD60A]">Expertise</span>
           </h2>
         </div>
 
@@ -36,26 +36,26 @@ export function Expertise() {
           {CARDS.map((c) => (
             <article
               key={c.title}
-              className="reveal code-card glass glass-hover rounded-2xl p-6 flex flex-col"
+              className="reveal neo-card neo-card-hover rounded-lg p-6 flex flex-col"
             >
-              <div className="font-mono text-[11px] text-white/40 mb-3">
+              <div className="font-mono text-[11px] text-black/40 mb-3">
                 &lt;code tag=&quot;{c.tag}&quot;&gt;
               </div>
-              <h3 className="display-font text-xl md:text-2xl font-semibold text-white leading-tight">
-                <span className="grad-text">{c.title}</span>
+              <h3 className="display-font text-xl md:text-2xl font-semibold text-black leading-tight">
+                <span className="font-bold">{c.title}</span>
               </h3>
-              <p className="mt-4 text-sm text-white/70 leading-relaxed">{c.body}</p>
+              <p className="mt-4 text-sm text-black/70 leading-relaxed">{c.body}</p>
               <div className="mt-5 flex flex-wrap gap-1.5">
                 {c.stack.map((s) => (
                   <span
                     key={s}
-                    className="font-mono text-[10px] uppercase tracking-wider text-white/70 px-2 py-1 rounded-md border border-white/10 bg-white/[0.03]"
+                    className="font-mono text-[10px] uppercase tracking-wider text-black/70 px-2 py-1 rounded-md border border-black bg-[#f5f5f5]"
                   >
                     {s}
                   </span>
                 ))}
               </div>
-              <div className="font-mono text-[11px] text-white/40 mt-6">
+              <div className="font-mono text-[11px] text-black/40 mt-6">
                 &lt;/code&gt;
               </div>
             </article>

@@ -32,11 +32,11 @@ export function Education() {
     <section id="education" className="section">
       <div className="max-w-6xl mx-auto">
         <div className="reveal mb-14 text-center">
-          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-white/50">
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-black/50">
             04 — background
           </p>
-          <h2 className="mt-4 display-font text-4xl md:text-6xl font-semibold tracking-tight text-white">
-            Education & <span className="grad-text">Awards</span>
+          <h2 className="mt-4 display-font text-4xl md:text-6xl font-semibold tracking-tight text-black">
+            Education & <span className="underline decoration-4 decoration-[#FFD60A]">Awards</span>
           </h2>
         </div>
 
@@ -48,28 +48,28 @@ export function Education() {
               className="absolute left-4 top-2 bottom-2 w-px"
               style={{
                 background:
-                  "linear-gradient(to bottom, transparent, rgba(255,255,255,0.25), transparent)",
+                  "linear-gradient(to bottom, transparent, rgba(0,0,0,0.2), transparent)",
               }}
             />
             <ul className="space-y-6">
               {EDUCATION.map((item) => (
                 <li key={item.title} className="reveal relative pl-12">
                   <span
-                    className="absolute left-4 top-6 -translate-x-1/2 w-3.5 h-3.5 rounded-full glass-strong"
+                    className="absolute left-4 top-6 -translate-x-1/2 w-3.5 h-3.5 rounded-full neo-card"
                     style={{
                       boxShadow:
-                        "0 0 0 4px rgba(99,102,241,0.15), 0 0 20px rgba(99,102,241,0.6)",
+                        "0 0 0 4px rgba(0,0,0,0.1), 0 0 0 1px #000",
                     }}
                   />
-                  <div className="glass glass-hover rounded-2xl p-5">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.25em] grad-text font-semibold">
+                  <div className="neo-card neo-card-hover rounded-lg p-5">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.25em] bg-[#FFD60A] text-black px-1 font-semibold">
                       {item.period}
                     </p>
-                    <h3 className="mt-2 display-font text-lg font-semibold text-white">
+                    <h3 className="mt-2 display-font text-lg font-semibold text-black">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-white/55">{item.place}</p>
-                    <p className="mt-2 text-sm text-white/70 leading-relaxed">
+                    <p className="text-sm text-black/55">{item.place}</p>
+                    <p className="mt-2 text-sm text-black/70 leading-relaxed">
                       {item.detail}
                     </p>
                   </div>
@@ -80,20 +80,20 @@ export function Education() {
 
           {/* Awards */}
           <div className="lg:col-span-2 reveal">
-            <div className="glass-strong rounded-2xl p-6 h-full">
-              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/50">
+            <div className="neo-card rounded-lg p-6 h-full">
+              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-black/50">
                 achievements
               </p>
-              <h3 className="mt-2 display-font text-2xl font-semibold text-white">
-                Selected <span className="grad-text">Awards</span>
+              <h3 className="mt-2 display-font text-2xl font-semibold text-black">
+                Selected <span className="underline decoration-4 decoration-[#FFD60A]">Awards</span>
               </h3>
               <ul className="mt-5 space-y-3">
                 {AWARDS.map((a) => (
                   <li
                     key={a}
-                    className="flex gap-3 text-sm text-white/75 leading-relaxed"
+                    className="flex gap-3 text-sm text-black/75 leading-relaxed"
                   >
-                    <span className="grad-text font-mono shrink-0">★</span>
+                    <span className="text-[#FFD60A] drop-shadow-[1px_1px_0_#000] font-mono shrink-0">★</span>
                     <span>{a}</span>
                   </li>
                 ))}

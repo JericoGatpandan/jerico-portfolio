@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "@tanstack/react-router";
 import { PROJECTS, Project } from "@/data/projects";
+
 export function Work() {
   // Featured project is always the one marked as featured
   const featured = PROJECTS.find((p) => p.featured)!;
@@ -19,50 +20,45 @@ export function Work() {
       <div className="max-w-6xl mx-auto">
         <div className="reveal mb-12 flex flex-col gap-6">
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-white/50">
+            <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-black/50">
               02 — selected projects
             </p>
-            <h2 className="mt-4 display-font text-4xl md:text-6xl font-semibold tracking-tight text-white">
-              My <span className="grad-text">Work</span>
+            <h2 className="mt-4 display-font text-4xl md:text-6xl font-semibold tracking-tight text-black">
+              My <span className="underline decoration-4 decoration-[#FFD60A]">Work</span>
             </h2>
           </div>
-          <p className="max-w-2xl text-sm md:text-base text-white/65 leading-relaxed">
+          <p className="max-w-2xl text-sm md:text-base text-black/65 leading-relaxed">
             A curated list of applications across cooperative management, travel booking, AI-assisted
             forecasting, and more — built alongside coursework, hackathons, and community teams.
             <br /><br />
-            <span className="text-white/40 italic text-xs md:text-sm">
-              * Note: Many of my other projects are private internal tools or are not currently deployed. <a href="#contact" className="hover:text-cyan-400 transition-colors underline decoration-white/20 underline-offset-2">Contact me</a> to learn more!
+            <span className="text-black/40 italic text-xs md:text-sm">
+              * Note: Many of my other projects are private internal tools or are not currently deployed. <a href="#contact" className="hover:bg-[#FFD60A] hover:text-black transition-colors underline decoration-black/20 underline-offset-2">Contact me</a> to learn more!
             </span>
           </p>
         </div>
 
         {/* Featured */}
-        <div className="reveal glass-strong rounded-3xl p-6 md:p-10 grid md:grid-cols-5 gap-8 mb-10 relative overflow-hidden group">
-          <div
-            aria-hidden
-            className="absolute -top-24 -right-24 w-80 h-80 rounded-full"
-            style={{ background: "#06b6d4", filter: "blur(90px)", opacity: 0.3 }}
-          />
+        <div className="reveal neo-card rounded-lg p-6 md:p-10 grid md:grid-cols-5 gap-8 mb-10 relative overflow-hidden group">
           <div className="md:col-span-3 relative">
-            <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-white/50">
+            <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-black/50">
               Featured Project · {featured.year}
             </span>
-            <h3 className="mt-3 display-font text-3xl md:text-5xl font-semibold text-white leading-tight tracking-tight">
-              <Link to="/projects/$id" params={{ id: featured.id }} className="hover:text-cyan-400 transition-colors text-left block">
+            <h3 className="mt-3 display-font text-3xl md:text-5xl font-semibold text-black leading-tight tracking-tight">
+              <Link to="/projects/$id" params={{ id: featured.id }} className="hover:bg-[#FFD60A] hover:text-black transition-colors text-left block">
                 {featured.title}
               </Link>
             </h3>
-            <p className="mt-2 text-white/60 text-sm md:text-base">
+            <p className="mt-2 text-black/60 text-sm md:text-base">
               {featured.subtitle}
             </p>
-            <p className="mt-6 text-white/75 leading-relaxed max-w-xl">
+            <p className="mt-6 text-black/75 leading-relaxed max-w-xl">
               {featured.blurb}
             </p>
             <div className="mt-6 flex flex-wrap gap-1.5">
               {featured.stack.map((s) => (
                 <span
                   key={s}
-                  className="font-mono text-[10px] uppercase tracking-wider text-white/75 px-2.5 py-1 rounded-md border border-white/10 bg-white/[0.04]"
+                  className="font-mono text-[10px] uppercase tracking-wider text-black/75 px-2.5 py-1 rounded-md border border-black bg-[#FFD60A]/10"
                 >
                   {s}
                 </span>
@@ -71,9 +67,9 @@ export function Work() {
           </div>
           <div className="md:col-span-2 relative flex items-center justify-center">
             <Link to="/projects/$id" params={{ id: featured.id }} className="block w-full h-full text-left">
-              <div className="glass rounded-2xl w-full h-full min-h-[250px] flex items-center justify-center relative overflow-hidden group-hover:border-cyan-500/30 transition-colors">
+              <div className="neo-card rounded-lg w-full h-full min-h-[250px] flex items-center justify-center relative overflow-hidden group-hover:border-black transition-colors">
                 {featured.image ? (
-                  <img src={featured.image} alt={featured.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
+                  <img src={featured.image} alt={featured.title} className="w-full h-full object-cover opacity-100 group-hover:scale-105 transition-all duration-500" />
                 ) : (
                   <div
                     aria-hidden
@@ -98,42 +94,42 @@ export function Work() {
                 key={p.title}
                 to="/projects/$id"
                 params={{ id: p.id }}
-                className="reveal glass glass-hover rounded-2xl p-0 flex flex-col overflow-hidden group cursor-pointer text-left w-full h-full block"
+                className="reveal neo-card neo-card-hover rounded-lg p-0 flex flex-col overflow-hidden group cursor-pointer text-left w-full h-full block"
               >
                 {/* Image Placeholder Area */}
                 {p.image && (
-                  <div className="w-full aspect-video bg-white/5 relative overflow-hidden border-b border-white/5">
+                  <div className="w-full aspect-video bg-[#FFD60A]/10 relative overflow-hidden border-b border-black">
                     <img 
                       src={p.image} 
                       alt={p.title}
-                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" 
+                      className="w-full h-full object-cover opacity-100 group-hover:scale-105 transition-all duration-500" 
                     />
                   </div>
                 )}
                 
                 <div className="p-6 flex flex-col flex-1">
-                  <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.2em] text-white/45">
+                  <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.2em] text-black/45">
                     <span>{p.category}</span>
                     <span>{p.year}</span>
                   </div>
-                  <h3 className="mt-3 display-font text-xl font-semibold text-white leading-tight group-hover:text-cyan-400 transition-colors">
+                  <h3 className="mt-3 display-font text-xl font-semibold text-black leading-tight group-hover:text-[#FFD60A] transition-colors">
                     {p.title} {p.link && "↗"}
                   </h3>
-                  <p className="mt-1 text-sm text-white/55">{p.subtitle}</p>
-                  <p className="mt-4 text-sm text-white/70 leading-relaxed flex-1">
+                  <p className="mt-1 text-sm text-black/55">{p.subtitle}</p>
+                  <p className="mt-4 text-sm text-black/70 leading-relaxed flex-1">
                     {p.blurb}
                   </p>
                   <div className="mt-5 flex flex-wrap gap-1.5">
                     {p.stack.slice(0, 4).map((s) => (
                       <span
                         key={s}
-                        className="font-mono text-[10px] uppercase tracking-wider text-white/65 px-2 py-1 rounded-md border border-white/10"
+                        className="font-mono text-[10px] uppercase tracking-wider text-black/65 px-2 py-1 rounded-md border border-black"
                       >
                         {s}
                       </span>
                     ))}
                     {p.stack.length > 4 && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-white/40 px-2 py-1">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-black/40 px-2 py-1">
                         +{p.stack.length - 4} more
                       </span>
                     )}
@@ -149,7 +145,7 @@ export function Work() {
           <div className="reveal mt-12 flex justify-center">
             <Link
               to="/projects"
-              className="glass-strong glass-hover rounded-full px-8 py-3 text-sm font-medium text-white transition-all flex items-center gap-2 group"
+              className="neo-card neo-card-hover px-8 py-3 text-sm font-medium text-black transition-all flex items-center gap-2 group"
             >
               View All Projects 
               <span className="group-hover:translate-x-1 transition-transform">→</span>
