@@ -54,7 +54,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="section relative flex items-center justify-center min-h-screen">
+    <section id="contact" className="section relative z-20 flex items-center justify-center min-h-screen">
       <div className="w-full max-w-6xl mx-auto z-10 relative">
         <motion.div
           variants={containerVariants}

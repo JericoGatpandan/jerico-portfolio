@@ -10,6 +10,7 @@ import { Education } from "@/components/portfolio/Education";
 import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
 import { useReveal } from "@/hooks/useReveal";
+import { StoryScrollSection } from "@/components/portfolio/StoryScrollSection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -46,6 +47,7 @@ function Index() {
         <Work />
         <Experience />
         <Education />
+        <StoryScrollSection />
         <Contact />
       </main>
       <Footer />
