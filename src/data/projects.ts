@@ -52,7 +52,7 @@ export const PROJECTS: Project[] = [
       "Relational schema, stored procedures, and triggers for Order/Transaction Management and FarmLedger Accounting. Role-based access for FACCS Admin, Cooperative Officer, and Farmer.",
     stack: ["PostgreSQL", "Supabase", "React", "Tailwind", "shadcn/ui", "Figma"],
     featured: true,
-    link: "https://salmon-ibis-469171.hostingersite.com/",
+    link: "https://asac.dabaforge.com/",
     image: "/projects/asac.png",
     problem: "Agricultural cooperatives face challenges with manual bookkeeping, fragmented order management, and lack of transparency between the federation, cooperative officers, and individual farmers.",
     solution: "A comprehensive Automated System for Agriculture Cooperatives (ASAC) designed to digitize FarmLedger accounting and streamline transaction management with a robust relational database foundation.",
